@@ -1,11 +1,12 @@
 # python3
-import numpy as np
+# import numpy as np
 
 def parallel_processing(n, m, data):
     output = []
     # TODO: write the function for simulating parallel tasks, 
     # create the output pairs
-    arr = np.zeros((1, n), dtype=bool)
+    # arr = np.zeros((1, n), dtype=bool)
+    arr = [[False for j in range(n)] for i in range(1)]
     time=0
     i=0
     # # while True:
@@ -35,11 +36,17 @@ def parallel_processing(n, m, data):
         for th in range(n):
             if not (arr[time][th]): # if its not taken up
                 print(th, time)
-                while ((arr.shape[0]-1)<(time+data[i])):
-                    arr_1d = np.zeros(n, dtype=bool)
-                    arr = np.append(arr, [arr_1d], axis=0)
+                while (len(arr)<(time+data[i])):
+                    # arr_1d = np.zeros(n, dtype=bool)
+                    arr_1d = [False for i in range(n)]
+                    # arr = np.append(arr, [arr_1d], axis=0)
+                    arr.append(arr_1d)
                 for work in range(data[i]):
-                    arr[time+work][th] = True
+                    tmp = time+work
+                    # print(tmp)
+                    # if(tmp<len(arr)):
+                    #     if (th<len(arr[tmp])):
+                    arr[tmp][th] = True
                 i+=1
         time = time +1
 
@@ -75,7 +82,7 @@ def main():
         data.append(int(i))
     # n = 0
     # m = 0
-
+    
     # second line - data 
     # data - contains m integers t(i) - the times in seconds it takes any thread to process i-th job
     # data = []
