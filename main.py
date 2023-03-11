@@ -9,27 +9,7 @@ def parallel_processing(n, m, data):
     arr = [[False for j in range(n)] for i in range(1)]
     time=0
     i=0
-    # # while True:
-    # #     if (m<=0):
-    # #         break
-    # #     for th in range(n):
-    # #         if not (arr[th][time]): # if its not taken up
-    # #             print(th, time)
-    # #             for work in range(data[i]):
-    # #                 if (work>=arr[th].size):
-    # #                     for tmp in range(n):
-    # #                         arr[th].append(False) # adding time
-    # #                 arr[th][work] = True # taking up
-    # #                 m=m-1
-    # #                 i=i+1
-    # for el in data:
-    #     # if not enough threads, search another time
-    #     for th in range(n): # add beark
-    #         if not (arr[time][th]): # if its not taken up
-    #             print(th, time)
-    #             # if not enough time, append
-    #             for work in range(el):
-    #                 arr[time+work][th] = True
+
     while True:
         if (i>=m):
             break
@@ -49,6 +29,9 @@ def parallel_processing(n, m, data):
                     arr[tmp][th] = True
                 i+=1
         time = time +1
+        while (len(arr)<=time):
+            arr_1d = [False for i in range(n)]
+            arr.append(arr_1d)
 
 
 
