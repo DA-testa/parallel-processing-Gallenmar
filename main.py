@@ -60,19 +60,21 @@ def main():
     # first line - n and m
     # n - thread count 
     # m - job count
-    text = input()
-    if 'I' in text:
-        line1 = input()
-        line2 = input()
-    elif 'F' in text:
-        name = input()
-        if not 'a' in name: 
-            name = "test/"+name
-            f = open(name, "r")
-            line1 = f.readline()
-            line2 = f.readline()
-            # text = f.read()
-            # raise Exception(text)
+    # text = input()
+    # if 'I' in text:
+    #     line1 = input()
+    #     line2 = input()
+    # elif 'F' in text:
+    #     name = input()
+    #     if not 'a' in name: 
+    #         name = "test/"+name
+    #         f = open(name, "r")
+    #         line1 = f.readline()
+    #         line2 = f.readline()
+    #         # text = f.read()
+    #         # raise Exception(text)
+    line1 = input()
+    line2 = input()
     n,m = line1.split(" ")
     n = int(n)
     m = int(m)
@@ -82,7 +84,7 @@ def main():
         data.append(int(i))
     # n = 0
     # m = 0
-    
+
     # second line - data 
     # data - contains m integers t(i) - the times in seconds it takes any thread to process i-th job
     # data = []
